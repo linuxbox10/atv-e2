@@ -1314,9 +1314,9 @@ def InitUsageConfig():
 	config.autolanguage.audio_autoselect2.addNotifier(autolanguage, initial_call=False)
 	config.autolanguage.audio_autoselect3.addNotifier(autolanguage, initial_call=False)
 	config.autolanguage.audio_autoselect4.addNotifier(autolanguage)
-	config.autolanguage.audio_defaultac3 = ConfigYesNo(default = False)
-	config.autolanguage.audio_defaultddp = ConfigYesNo(default = False)
-	config.autolanguage.audio_usecache = ConfigYesNo(default = True)
+	config.autolanguage.audio_defaultac3 = ConfigYesNo(default = True)
+	config.autolanguage.audio_defaultddp = ConfigYesNo(default = True)
+	config.autolanguage.audio_usecache = ConfigYesNo(default = False)
 
 	subtitle_language_choices = audio_language_choices[:1] + audio_language_choices [2:]
 	def getselectedsublanguages(range):
