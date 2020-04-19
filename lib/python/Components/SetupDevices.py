@@ -23,7 +23,7 @@ def InitSetupDevices():
 	elif getMachineBrand() == 'Beyonwiz':
 		defaultLanguage = "en_GB"
 	else:
-		defaultLanguage = "de_DE"
+		defaultLanguage = "en_GB"
 	config.osd.language = ConfigText(default=defaultLanguage)
 	config.osd.language.addNotifier(languageNotifier)
 
