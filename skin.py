@@ -14,7 +14,7 @@ from Tools.Directories import SCOPE_CONFIG, SCOPE_CURRENT_LCDSKIN, SCOPE_CURRENT
 from Tools.Import import my_import
 from Tools.LoadPixmap import LoadPixmap
 
-DEFAULT_SKIN = "MetrixHD/skin.xml"
+DEFAULT_SKIN = "slyk-q-1080/skin.xml"
 EMERGENCY_SKIN = "skin_default.xml"
 DEFAULT_DISPLAY_SKIN = "skin_display_grautec.xml" if SystemInfo["grautec"] else "skin_display.xml"
 USER_SKIN = "skin_user.xml"
