@@ -609,7 +609,7 @@ def InitAVSwitch():
 		# TRANSLATORS: (aspect ratio policy: display as fullscreen, with stretching all parts of the picture with the same factor (All parts lose aspect))
 		policy2_choices.update({"bestfit": _("Stretch linear")})
 
-	config.av.policy_169 = ConfigSelection(choices=policy2_choices, default =	"letterbox")
+	config.av.policy_169 = ConfigSelection(choices=policy2_choices, default =	"bestfit")
 
 	policy_choices_proc="/proc/stb/video/policy_choices"
 	try:
@@ -662,7 +662,7 @@ def InitAVSwitch():
 		# TRANSLATORS: (aspect ratio policy: display as fullscreen, with stretching all parts of the picture with the same factor (All parts lose aspect))
 		policy_choices.update({"bestfit": _("Stretch linear")})
 
-	config.av.policy_43 = ConfigSelection(choices=policy_choices, default = "panscan")
+	config.av.policy_43 = ConfigSelection(choices=policy_choices, default = "bestfit")
 	config.av.tvsystem = ConfigSelection(choices = {"pal": _("PAL"), "ntsc": _("NTSC"), "multinorm": _("multinorm")}, default="pal")
 	config.av.wss = ConfigEnableDisable(default = True)
 	config.av.generalAC3delay = ConfigSelectionNumber(-1000, 1000, 5, default = 0)
