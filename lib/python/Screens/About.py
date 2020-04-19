@@ -130,7 +130,7 @@ def getAboutText():
 	if SystemInfo["canMultiBoot"]:
 		slot = image = GetCurrentImage()
 		bootmode = ""
-		part = "eMMC slot %s" %slot
+		part = ""
 		if SystemInfo["canMode12"]:
 			bootmode = "bootmode = %s" %GetCurrentImageMode()
 		if SystemInfo["HasHiSi"] and "sda" in SystemInfo["canMultiBoot"][slot]['device']:
@@ -360,9 +360,9 @@ class About(Screen):
 
 			self["FullAbout"] = ScrollLabel(my_txt)
 		else:
-			self["lab1"] = StaticText(_("openATV"))
-			self["lab2"] = StaticText(_("By openATV Image Team"))
-			self["lab3"] = StaticText(_("Support at") + " www.opena.tv")
+			self["lab1"] = StaticText(_("openATV Sky Look"))
+			self["lab2"] = StaticText(_("Build by Ten Below"))
+			self["lab3"] = StaticText(_("Support at") + " vuplus-images.co.uk")
 			model = None
 			AboutText = getAboutText()[0]
 			self["AboutScrollLabel"] = ScrollLabel(AboutText)
