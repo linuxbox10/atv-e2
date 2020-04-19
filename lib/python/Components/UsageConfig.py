@@ -69,7 +69,7 @@ def InitUsageConfig():
 
 	config.usage.servicetype_icon_mode = ConfigSelection(default = "0", choices = [("0", _("None")), ("1", _("Left from servicename")), ("2", _("Right from servicename"))])
 	config.usage.servicetype_icon_mode.addNotifier(refreshServiceList)
-	config.usage.crypto_icon_mode = ConfigSelection(default = "0", choices = [("0", _("None")), ("1", _("Left from servicename")), ("2", _("Right from servicename"))])
+	config.usage.crypto_icon_mode = ConfigSelection(default = "1", choices = [("0", _("None")), ("1", _("Left from servicename")), ("2", _("Right from servicename"))])
 	config.usage.crypto_icon_mode.addNotifier(refreshServiceList)
 	config.usage.record_indicator_mode = ConfigSelection(default = "3", choices = [("0", _("None")), ("1", _("Left from servicename")), ("2", _("Right from servicename")), ("3", _("Red colored"))])
 	config.usage.record_indicator_mode.addNotifier(refreshServiceList)
@@ -112,7 +112,7 @@ def InitUsageConfig():
 	################
 	config.usage.servicelist_infokey = ConfigSelection(default = "event", choices = [("epg", _("Single EPG")), ("event", _("Eventview"))])
 
-	config.usage.service_icon_enable = ConfigYesNo(default = False)
+	config.usage.service_icon_enable = ConfigYesNo(default = True)
 	config.usage.service_icon_enable.addNotifier(refreshServiceList)
 	config.usage.servicelist_picon_downsize = ConfigSelectionNumber(default = -2, stepwidth = 1, min = -10, max = 0, wraparound = True)
 	config.usage.servicelist_picon_ratio = ConfigSelection(default = "167", choices = [("167", _("XPicon, ZZZPicon")), ("235", _("ZZPicon")), ("250", _("ZPicon"))])
@@ -157,7 +157,7 @@ def InitUsageConfig():
 	config.usage.show_infobar_do_dimming = ConfigYesNo(default = False)
 	config.usage.show_infobar_dimming_speed = ConfigSelectionNumber(min = 1, max = 40, stepwidth = 1, default = 10, wraparound = True)
 	config.usage.show_infobar_channel_number = ConfigYesNo(default = False)
-	config.usage.show_second_infobar = ConfigSelection(default = "1", choices = [("0", _("Off")), ("1", _("Event Info")), ("2", _("2nd Infobar INFO")), ("3", _("2nd Infobar ECM"))])
+	config.usage.show_second_infobar = ConfigSelection(default = "2", choices = [("0", _("Off")), ("1", _("Event Info")), ("2", _("2nd Infobar INFO")), ("3", _("2nd Infobar ECM"))])
 	config.usage.second_infobar_timeout = ConfigSelection(default = "5", choices = [("0", _("No timeout"))] + choicelist)
 	def showsecondinfobarChanged(configElement):
 		if config.usage.show_second_infobar.value != "INFOBAREPG":
@@ -167,7 +167,7 @@ def InitUsageConfig():
 	config.usage.show_second_infobar.addNotifier(showsecondinfobarChanged, immediate_feedback = True)
 	config.usage.infobar_frontend_source = ConfigSelection(default = "tuner", choices = [("settings", _("Settings")), ("tuner", _("Tuner"))])
 	
-	config.usage.show_picon_bkgrn = ConfigSelection(default = "transparent", choices = [("none", _("Disabled")), ("transparent", _("Transparent")), ("blue", _("Blue")), ("red", _("Red")), ("black", _("Black")), ("white", _("White")), ("lightgrey", _("Light Grey")), ("grey", _("Grey"))])
+	config.usage.show_picon_bkgrn = ConfigSelection(default = "none", choices = [("none", _("Disabled")), ("transparent", _("Transparent")), ("blue", _("Blue")), ("red", _("Red")), ("black", _("Black")), ("white", _("White")), ("lightgrey", _("Light Grey")), ("grey", _("Grey"))])
 	config.usage.show_genre_info = ConfigYesNo(default=True)
 	config.usage.show_spinner = ConfigYesNo(default = True)
 	config.usage.enable_tt_caching = ConfigYesNo(default = True)
@@ -217,7 +217,7 @@ def InitUsageConfig():
 	config.usage.sort_pluginlist = ConfigYesNo(default = True)
 	config.usage.sort_extensionslist = ConfigYesNo(default = False)
 	config.usage.show_restart_network_extensionslist = ConfigYesNo(default = True)
-	config.usage.movieplayer_pvrstate = ConfigYesNo(default = False)
+	config.usage.movieplayer_pvrstate = ConfigYesNo(default = True)
 
 	choicelist = []
 	for i in (10, 30):
@@ -448,7 +448,7 @@ def InitUsageConfig():
 	config.usage.servicename_fontsize = ConfigSelectionNumber(default = 0, stepwidth = 1, min = -10, max = 10, wraparound = True)
 	config.usage.serviceinfo_fontsize = ConfigSelectionNumber(default = 0, stepwidth = 1, min = -10, max = 10, wraparound = True)
 	config.usage.progressinfo_fontsize = ConfigSelectionNumber(default = 0, stepwidth = 1, min = -10, max = 10, wraparound = True)
-	config.usage.serviceitems_per_page = ConfigSelectionNumber(default = 18, stepwidth = 1, min = 8, max = 40, wraparound = True)
+	config.usage.serviceitems_per_page = ConfigSelectionNumber(default = 14, stepwidth = 1, min = 8, max = 40, wraparound = True)
 	config.usage.show_servicelist = ConfigYesNo(default = True)
 	config.usage.servicelist_mode = ConfigSelection(default = "standard", choices = [
 		("standard", _("Standard")),
@@ -1414,7 +1414,7 @@ def InitUsageConfig():
 		choicelist.append(("%d" %i, _("%d minutes") %i))
 	config.epgselection.infobar_histminutes = ConfigSelection(default = "0", choices = choicelist)
 	config.epgselection.infobar_prevtime = ConfigClock(default = time())
-	config.epgselection.infobar_prevtimeperiod = ConfigSelection(default = "180", choices = [("60", _("%d minutes") % 60), ("90", _("%d minutes") % 90), ("120", _("%d minutes") % 120), ("150", _("%d minutes") % 150), ("180", _("%d minutes") % 180), ("210", _("%d minutes") % 210), ("240", _("%d minutes") % 240), ("270", _("%d minutes") % 270), ("300", _("%d minutes") % 300)])
+	config.epgselection.infobar_prevtimeperiod = ConfigSelection(default = "120", choices = [("60", _("%d minutes") % 60), ("90", _("%d minutes") % 90), ("120", _("%d minutes") % 120), ("150", _("%d minutes") % 150), ("180", _("%d minutes") % 180), ("210", _("%d minutes") % 210), ("240", _("%d minutes") % 240), ("270", _("%d minutes") % 270), ("300", _("%d minutes") % 300)])
 	config.epgselection.infobar_primetimehour = ConfigSelectionNumber(default = 20, stepwidth = 1, min = 00, max = 23, wraparound = True)
 	config.epgselection.infobar_primetimemins = ConfigSelectionNumber(default = 15, stepwidth = 1, min = 00, max = 59, wraparound = True)
 	#config.epgselection.infobar_servicetitle_mode = ConfigSelection(default = "servicename", choices = [("servicename", _("Service Name")),("picon", _("Picon")),("picon+servicename", _("Picon and Service Name")) ])
@@ -1423,7 +1423,7 @@ def InitUsageConfig():
 	config.epgselection.infobar_eventfs = ConfigSelectionNumber(default = 0, stepwidth = 1, min = -8, max = 10, wraparound = True)
 	config.epgselection.infobar_timelinefs = ConfigSelectionNumber(default = 0, stepwidth = 1, min = -8, max = 10, wraparound = True)
 	config.epgselection.infobar_timeline24h = ConfigYesNo(default = True)
-	config.epgselection.infobar_servicewidth = ConfigSelectionNumber(default = 250, stepwidth = 1, min = 70, max = 500, wraparound = True)
+	config.epgselection.infobar_servicewidth = ConfigSelectionNumber(default = 490, stepwidth = 1, min = 70, max = 500, wraparound = True)
 	config.epgselection.infobar_piconwidth = ConfigSelectionNumber(default = 100, stepwidth = 1, min = 50, max = 500, wraparound = True)
 	config.epgselection.infobar_infowidth = ConfigSelectionNumber(default = 75, stepwidth = 25, min = 0, max = 150, wraparound = True)
 	config.epgselection.enhanced_preview_mode = ConfigYesNo(default = True)
