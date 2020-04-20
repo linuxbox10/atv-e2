@@ -360,7 +360,7 @@ class About(Screen):
 
 			self["FullAbout"] = ScrollLabel(my_txt)
 		else:
-			self["lab1"] = StaticText(_("openATV Sky Look"))
+			self["lab1"] = StaticText(_("OpenATV Sky Look"))
 			self["lab2"] = StaticText(_("Build by Ten Below"))
 			self["lab3"] = StaticText(_("Support at") + " vuplus-images.co.uk")
 			model = None
